@@ -611,18 +611,18 @@ OPENDHT_PUBLIC void hash(const uint8_t* data, size_t data_length, uint8_t* hash,
  * that can be transmitted in clear, and will be generated if
  * not provided (32 bytes).
  */
-OPENDHT_PUBLIC Blob stretchKey(const std::string& password, Blob& salt, size_t key_length = 512/8);
+OPENDHT_PUBLIC SecureBlob stretchKey(const std::string& password, Blob& salt, size_t key_length = 512/8);
 
 /**
  * AES-GCM encryption. Key must be 128, 192 or 256 bits long (16, 24 or 32 bytes).
  */
-OPENDHT_PUBLIC Blob aesEncrypt(const Blob& data, const Blob& key);
+OPENDHT_PUBLIC Blob aesEncrypt(const Blob& data, const SecureBlob& key);
 OPENDHT_PUBLIC Blob aesEncrypt(const Blob& data, const std::string& password);
 
 /**
  * AES-GCM decryption.
  */
-OPENDHT_PUBLIC Blob aesDecrypt(const Blob& data, const Blob& key);
+OPENDHT_PUBLIC Blob aesDecrypt(const Blob& data, const SecureBlob& key);
 OPENDHT_PUBLIC Blob aesDecrypt(const Blob& data, const std::string& password);
 
 }
